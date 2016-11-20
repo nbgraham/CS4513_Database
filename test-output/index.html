@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+  <meta charset='utf-8'>
+  <title>TestNG reports</title>
+
+    <link type="text/css" href="testng-reports.css" rel="stylesheet" />  
+    <script type="text/javascript" src="jquery-1.7.1.min.js"></script>
+    <script type="text/javascript" src="testng-reports.js"></script>
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type='text/javascript'>
+      google.load('visualization', '1', {packages:['table']});
+      google.setOnLoadCallback(drawTable);
+      var suiteTableInitFunctions = new Array();
+      var suiteTableData = new Array();
+    </script>
+    <!--
+      <script type="text/javascript" src="jquery-ui/js/jquery-ui-1.8.16.custom.min.js"></script>
+     -->
+  </head>
+
+  <body>
+    <div class="top-banner-root">
+      <span class="top-banner-title-font">Test results</span>
+      <br/>
+      <span class="top-banner-font-1">1 suite, 1 failed test</span>
+    </div> <!-- top-banner-root -->
+    <div class="navigator-root">
+      <div class="navigator-suite-header">
+        <span>All suites</span>
+        <a href="#" class="collapse-all-link" title="Collapse/expand all the suites">
+          <img class="collapse-all-icon" src="collapseall.gif">
+          </img> <!-- collapse-all-icon -->
+        </a> <!-- collapse-all-link -->
+      </div> <!-- navigator-suite-header -->
+      <div class="suite">
+        <div class="rounded-window">
+          <div class="suite-header light-rounded-window-top">
+            <a href="#" class="navigator-link" panel-name="suite-Default_suite">
+              <span class="suite-name border-failed">Default suite</span>
+            </a> <!-- navigator-link -->
+          </div> <!-- suite-header light-rounded-window-top -->
+          <div class="navigator-suite-content">
+            <div class="suite-section-title">
+              <span>Info</span>
+            </div> <!-- suite-section-title -->
+            <div class="suite-section-content">
+              <ul>
+                <li>
+                  <a href="#" class="navigator-link " panel-name="test-xml-Default_suite">
+                    <span>testng-customsuite.xml</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+                <li>
+                  <a href="#" class="navigator-link " panel-name="testlist-Default_suite">
+                    <span class="test-stats">1 test</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+                <li>
+                  <a href="#" class="navigator-link " panel-name="group-Default_suite">
+                    <span>0 groups</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+                <li>
+                  <a href="#" class="navigator-link " panel-name="times-Default_suite">
+                    <span>Times</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+                <li>
+                  <a href="#" class="navigator-link " panel-name="reporter-Default_suite">
+                    <span>Reporter output</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+                <li>
+                  <a href="#" class="navigator-link " panel-name="ignored-methods-Default_suite">
+                    <span>Ignored methods</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+                <li>
+                  <a href="#" class="navigator-link " panel-name="chronological-Default_suite">
+                    <span>Chronological view</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+              </ul>
+            </div> <!-- suite-section-content -->
+            <div class="result-section">
+              <div class="suite-section-title">
+                <span>Results</span>
+              </div> <!-- suite-section-title -->
+              <div class="suite-section-content">
+                <ul>
+                  <li>
+                    <span class="method-stats">20 methods, 1 failed,   19 passed</span>
+                  </li>
+                  <li>
+                    <span class="method-list-title failed">Failed methods</span>
+                    <span class="show-or-hide-methods failed">
+                      <a href="#" panel-name="suite-Default_suite" class="hide-methods failed suite-Default_suite"> (hide)</a> <!-- hide-methods failed suite-Default_suite -->
+                      <a href="#" panel-name="suite-Default_suite" class="show-methods failed suite-Default_suite"> (show)</a> <!-- show-methods failed suite-Default_suite -->
+                    </span>
+                    <div class="method-list-content failed suite-Default_suite">
+                      <span>
+                        <img width="3%" src="failed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="test.TestDatabase" hash-for-method="test21_Error">test21_Error</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                    </div> <!-- method-list-content failed suite-Default_suite -->
+                  </li>
+                  <li>
+                    <span class="method-list-title passed">Passed methods</span>
+                    <span class="show-or-hide-methods passed">
+                      <a href="#" panel-name="suite-Default_suite" class="hide-methods passed suite-Default_suite"> (hide)</a> <!-- hide-methods passed suite-Default_suite -->
+                      <a href="#" panel-name="suite-Default_suite" class="show-methods passed suite-Default_suite"> (show)</a> <!-- show-methods passed suite-Default_suite -->
+                    </span>
+                    <div class="method-list-content passed suite-Default_suite">
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="test.TestDatabase" hash-for-method="test01_addEmployees">test01_addEmployees</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="test.TestDatabase" hash-for-method="test02_addProducts">test02_addProducts</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="test.TestDatabase" hash-for-method="test03_addCustomers">test03_addCustomers</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="test.TestDatabase" hash-for-method="test04_addAccounts">test04_addAccounts</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="test.TestDatabase" hash-for-method="test05_addComplaints">test05_addComplaints</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="test.TestDatabase" hash-for-method="test06_addAccidents">test06_addAccidents</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="test.TestDatabase" hash-for-method="test07_getDateAndTimeForProduct">test07_getDateAndTimeForProduct</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="test.TestDatabase" hash-for-method="test08_getProductsMadeByWorker">test08_getProductsMadeByWorker</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="test.TestDatabase" hash-for-method="test09_getErrorByQC">test09_getErrorByQC</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="test.TestDatabase" hash-for-method="test10_getCostProduct3RepairedBy">test10_getCostProduct3RepairedBy</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="test.TestDatabase" hash-for-method="test11_getCustomerWhoPurchasedAllColor">test11_getCustomerWhoPurchasedAllColor</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="test.TestDatabase" hash-for-method="test12_getWorkDaysLostFromRepairs">test12_getWorkDaysLostFromRepairs</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="test.TestDatabase" hash-for-method="test13_getAllCustomersWhoAreWorkers">test13_getAllCustomersWhoAreWorkers</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="test.TestDatabase" hash-for-method="test14_customersPurchasedOwn">test14_customersPurchasedOwn</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="test.TestDatabase" hash-for-method="test15_averageCostProductYear">test15_averageCostProductYear</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="test.TestDatabase" hash-for-method="test16_switchTSandQC">test16_switchTSandQC</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="test.TestDatabase" hash-for-method="test17_deleteAccidentsInRange">test17_deleteAccidentsInRange</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="test.TestDatabase" hash-for-method="test19_export">test19_export</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="test.TestDatabase" hash-for-method="test20_quit">test20_quit</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                    </div> <!-- method-list-content passed suite-Default_suite -->
+                  </li>
+                </ul>
+              </div> <!-- suite-section-content -->
+            </div> <!-- result-section -->
+          </div> <!-- navigator-suite-content -->
+        </div> <!-- rounded-window -->
+      </div> <!-- suite -->
+    </div> <!-- navigator-root -->
+    <div class="wrapper">
+      <div class="main-panel-root">
+        <div panel-name="suite-Default_suite" class="panel Default_suite">
+          <div class="suite-Default_suite-class-failed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="failed.png"/>
+              <span class="class-name">test.TestDatabase</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="test21_Error">
+                  </a> <!-- test21_Error -->
+                  <span class="method-name">test21_Error</span>
+                  <div class="stack-trace">junit.framework.AssertionFailedError
+	at junit.framework.Assert.fail(Assert.java:55)
+	at junit.framework.Assert.assertTrue(Assert.java:22)
+	at junit.framework.Assert.assertTrue(Assert.java:31)
+	at junit.framework.TestCase.assertTrue(TestCase.java:201)
+	at test.TestDatabase.test21_Error(TestDatabase.java:416)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:100)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:646)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:811)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1137)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)
+	at org.testng.TestRunner.privateRun(TestRunner.java:753)
+	at org.testng.TestRunner.run(TestRunner.java:607)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:368)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:363)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:321)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:270)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1284)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1209)
+	at org.testng.TestNG.runSuites(TestNG.java:1124)
+	at org.testng.TestNG.run(TestNG.java:1096)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:132)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:236)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:81)
+
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-Default_suite-class-failed -->
+          <div class="suite-Default_suite-class-passed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="passed.png"/>
+              <span class="class-name">test.TestDatabase</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="test01_addEmployees">
+                  </a> <!-- test01_addEmployees -->
+                  <span class="method-name">test01_addEmployees</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="test02_addProducts">
+                  </a> <!-- test02_addProducts -->
+                  <span class="method-name">test02_addProducts</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="test03_addCustomers">
+                  </a> <!-- test03_addCustomers -->
+                  <span class="method-name">test03_addCustomers</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="test04_addAccounts">
+                  </a> <!-- test04_addAccounts -->
+                  <span class="method-name">test04_addAccounts</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="test05_addComplaints">
+                  </a> <!-- test05_addComplaints -->
+                  <span class="method-name">test05_addComplaints</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="test06_addAccidents">
+                  </a> <!-- test06_addAccidents -->
+                  <span class="method-name">test06_addAccidents</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="test07_getDateAndTimeForProduct">
+                  </a> <!-- test07_getDateAndTimeForProduct -->
+                  <span class="method-name">test07_getDateAndTimeForProduct</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="test08_getProductsMadeByWorker">
+                  </a> <!-- test08_getProductsMadeByWorker -->
+                  <span class="method-name">test08_getProductsMadeByWorker</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="test09_getErrorByQC">
+                  </a> <!-- test09_getErrorByQC -->
+                  <span class="method-name">test09_getErrorByQC</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="test10_getCostProduct3RepairedBy">
+                  </a> <!-- test10_getCostProduct3RepairedBy -->
+                  <span class="method-name">test10_getCostProduct3RepairedBy</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="test11_getCustomerWhoPurchasedAllColor">
+                  </a> <!-- test11_getCustomerWhoPurchasedAllColor -->
+                  <span class="method-name">test11_getCustomerWhoPurchasedAllColor</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="test12_getWorkDaysLostFromRepairs">
+                  </a> <!-- test12_getWorkDaysLostFromRepairs -->
+                  <span class="method-name">test12_getWorkDaysLostFromRepairs</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="test13_getAllCustomersWhoAreWorkers">
+                  </a> <!-- test13_getAllCustomersWhoAreWorkers -->
+                  <span class="method-name">test13_getAllCustomersWhoAreWorkers</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="test14_customersPurchasedOwn">
+                  </a> <!-- test14_customersPurchasedOwn -->
+                  <span class="method-name">test14_customersPurchasedOwn</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="test15_averageCostProductYear">
+                  </a> <!-- test15_averageCostProductYear -->
+                  <span class="method-name">test15_averageCostProductYear</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="test16_switchTSandQC">
+                  </a> <!-- test16_switchTSandQC -->
+                  <span class="method-name">test16_switchTSandQC</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="test17_deleteAccidentsInRange">
+                  </a> <!-- test17_deleteAccidentsInRange -->
+                  <span class="method-name">test17_deleteAccidentsInRange</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="test19_export">
+                  </a> <!-- test19_export -->
+                  <span class="method-name">test19_export</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="test20_quit">
+                  </a> <!-- test20_quit -->
+                  <span class="method-name">test20_quit</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-Default_suite-class-passed -->
+        </div> <!-- panel Default_suite -->
+        <div panel-name="test-xml-Default_suite" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">/private/var/folders/wm/7k4rzj494vbdbpzsdrly23l80000gn/T/testng-eclipse-929848604/testng-customsuite.xml</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+            <pre>
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;!DOCTYPE suite SYSTEM &quot;http://testng.org/testng-1.0.dtd&quot;&gt;
+&lt;suite guice-stage=&quot;DEVELOPMENT&quot; name=&quot;Default suite&quot;&gt;
+  &lt;test verbose=&quot;2&quot; name=&quot;Default test&quot;&gt;
+    &lt;classes&gt;
+      &lt;class name=&quot;test.TestDatabase&quot;/&gt;
+    &lt;/classes&gt;
+  &lt;/test&gt; &lt;!-- Default test --&gt;
+&lt;/suite&gt; &lt;!-- Default suite --&gt;
+            </pre>
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+        <div panel-name="testlist-Default_suite" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">Tests for Default suite</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+            <ul>
+              <li>
+                <span class="test-name">Default test (1 class)</span>
+              </li>
+            </ul>
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+        <div panel-name="group-Default_suite" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">Groups for Default suite</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+        <div panel-name="times-Default_suite" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">Times for Default suite</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+            <div class="times-div">
+              <script type="text/javascript">
+suiteTableInitFunctions.push('tableData_Default_suite');
+function tableData_Default_suite() {
+var data = new google.visualization.DataTable();
+data.addColumn('number', 'Number');
+data.addColumn('string', 'Method');
+data.addColumn('string', 'Class');
+data.addColumn('number', 'Time (ms)');
+data.addRows(20);
+data.setCell(0, 0, 0)
+data.setCell(0, 1, 'test21_Error')
+data.setCell(0, 2, 'test.TestDatabase')
+data.setCell(0, 3, 43139);
+data.setCell(1, 0, 1)
+data.setCell(1, 1, 'test03_addCustomers')
+data.setCell(1, 2, 'test.TestDatabase')
+data.setCell(1, 3, 1247);
+data.setCell(2, 0, 2)
+data.setCell(2, 1, 'test02_addProducts')
+data.setCell(2, 2, 'test.TestDatabase')
+data.setCell(2, 3, 935);
+data.setCell(3, 0, 3)
+data.setCell(3, 1, 'test04_addAccounts')
+data.setCell(3, 2, 'test.TestDatabase')
+data.setCell(3, 3, 734);
+data.setCell(4, 0, 4)
+data.setCell(4, 1, 'test01_addEmployees')
+data.setCell(4, 2, 'test.TestDatabase')
+data.setCell(4, 3, 512);
+data.setCell(5, 0, 5)
+data.setCell(5, 1, 'test08_getProductsMadeByWorker')
+data.setCell(5, 2, 'test.TestDatabase')
+data.setCell(5, 3, 330);
+data.setCell(6, 0, 6)
+data.setCell(6, 1, 'test16_switchTSandQC')
+data.setCell(6, 2, 'test.TestDatabase')
+data.setCell(6, 3, 218);
+data.setCell(7, 0, 7)
+data.setCell(7, 1, 'test07_getDateAndTimeForProduct')
+data.setCell(7, 2, 'test.TestDatabase')
+data.setCell(7, 3, 186);
+data.setCell(8, 0, 8)
+data.setCell(8, 1, 'test05_addComplaints')
+data.setCell(8, 2, 'test.TestDatabase')
+data.setCell(8, 3, 149);
+data.setCell(9, 0, 9)
+data.setCell(9, 1, 'test06_addAccidents')
+data.setCell(9, 2, 'test.TestDatabase')
+data.setCell(9, 3, 149);
+data.setCell(10, 0, 10)
+data.setCell(10, 1, 'test17_deleteAccidentsInRange')
+data.setCell(10, 2, 'test.TestDatabase')
+data.setCell(10, 3, 146);
+data.setCell(11, 0, 11)
+data.setCell(11, 1, 'test11_getCustomerWhoPurchasedAllColor')
+data.setCell(11, 2, 'test.TestDatabase')
+data.setCell(11, 3, 140);
+data.setCell(12, 0, 12)
+data.setCell(12, 1, 'test19_export')
+data.setCell(12, 2, 'test.TestDatabase')
+data.setCell(12, 3, 115);
+data.setCell(13, 0, 13)
+data.setCell(13, 1, 'test10_getCostProduct3RepairedBy')
+data.setCell(13, 2, 'test.TestDatabase')
+data.setCell(13, 3, 111);
+data.setCell(14, 0, 14)
+data.setCell(14, 1, 'test09_getErrorByQC')
+data.setCell(14, 2, 'test.TestDatabase')
+data.setCell(14, 3, 110);
+data.setCell(15, 0, 15)
+data.setCell(15, 1, 'test13_getAllCustomersWhoAreWorkers')
+data.setCell(15, 2, 'test.TestDatabase')
+data.setCell(15, 3, 71);
+data.setCell(16, 0, 16)
+data.setCell(16, 1, 'test14_customersPurchasedOwn')
+data.setCell(16, 2, 'test.TestDatabase')
+data.setCell(16, 3, 70);
+data.setCell(17, 0, 17)
+data.setCell(17, 1, 'test12_getWorkDaysLostFromRepairs')
+data.setCell(17, 2, 'test.TestDatabase')
+data.setCell(17, 3, 38);
+data.setCell(18, 0, 18)
+data.setCell(18, 1, 'test15_averageCostProductYear')
+data.setCell(18, 2, 'test.TestDatabase')
+data.setCell(18, 3, 37);
+data.setCell(19, 0, 19)
+data.setCell(19, 1, 'test20_quit')
+data.setCell(19, 2, 'test.TestDatabase')
+data.setCell(19, 3, 1);
+window.suiteTableData['Default_suite']= { tableData: data, tableDiv: 'times-div-Default_suite'}
+return data;
+}
+              </script>
+              <span class="suite-total-time">Total running time: 48 seconds</span>
+              <div id="times-div-Default_suite">
+              </div> <!-- times-div-Default_suite -->
+            </div> <!-- times-div -->
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+        <div panel-name="reporter-Default_suite" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">Reporter output for Default suite</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+        <div panel-name="ignored-methods-Default_suite" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">0 ignored methods</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+        <div panel-name="chronological-Default_suite" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">Methods in chronological order</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+            <div class="chronological-class">
+              <div class="chronological-class-name">test.TestDatabase</div> <!-- chronological-class-name -->
+              <div class="configuration-class before">
+                <span class="method-name">setupDB</span>
+                <span class="method-start">0 ms</span>
+              </div> <!-- configuration-class before -->
+              <div class="test-method">
+                <span class="method-name">test01_addEmployees</span>
+                <span class="method-start">6115 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">test02_addProducts</span>
+                <span class="method-start">6629 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">test03_addCustomers</span>
+                <span class="method-start">7566 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">test04_addAccounts</span>
+                <span class="method-start">8814 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">test05_addComplaints</span>
+                <span class="method-start">9549 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">test06_addAccidents</span>
+                <span class="method-start">9700 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">test07_getDateAndTimeForProduct</span>
+                <span class="method-start">9851 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">test08_getProductsMadeByWorker</span>
+                <span class="method-start">10039 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">test09_getErrorByQC</span>
+                <span class="method-start">10371 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">test10_getCostProduct3RepairedBy</span>
+                <span class="method-start">10483 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">test11_getCustomerWhoPurchasedAllColor</span>
+                <span class="method-start">10596 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">test12_getWorkDaysLostFromRepairs</span>
+                <span class="method-start">10740 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">test13_getAllCustomersWhoAreWorkers</span>
+                <span class="method-start">10779 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">test14_customersPurchasedOwn</span>
+                <span class="method-start">10852 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">test15_averageCostProductYear</span>
+                <span class="method-start">10923 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">test16_switchTSandQC</span>
+                <span class="method-start">10962 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">test17_deleteAccidentsInRange</span>
+                <span class="method-start">11182 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">test19_export</span>
+                <span class="method-start">11329 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">test20_quit</span>
+                <span class="method-start">11446 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <img src="failed.png">
+                </img>
+                <span class="method-name">test21_Error</span>
+                <span class="method-start">11448 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-class after">
+                <span class="method-name">cleanupDB</span>
+                <span class="method-start">54590 ms</span>
+              </div> <!-- configuration-class after -->
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+      </div> <!-- main-panel-root -->
+    </div> <!-- wrapper -->
+  </body>
+</html>
