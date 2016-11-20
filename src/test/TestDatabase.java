@@ -36,7 +36,7 @@ public class TestDatabase extends TestCase {
 		try {
 			Database.clearData();
 		} catch (SQLException e) {
-			assertTrue(false);
+			assertEquals("", e.getMessage());
 		}
 	}
 

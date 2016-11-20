@@ -5,9 +5,26 @@
     <classes>
       <class name="test.TestDatabase">
         <methods>
-          <include name="cleanupDB"/>
+          <include name="test11_getCustomerWhoPurchasedAllColor"/>
+          <include name="test03_addCustomers"/>
+          <include name="test13_getAllCustomersWhoAreWorkers"/>
+          <include name="test15_averageCostProductYear"/>
+          <include name="test20_Error"/>
           <include name="setupDB"/>
-          <include name="test21_Error"/>
+          <include name="test09_getErrorByQC"/>
+          <include name="test06_addAccidents"/>
+          <include name="test04_addAccounts"/>
+          <include name="test12_getWorkDaysLostFromRepairs"/>
+          <include name="test01_addEmployees"/>
+          <include name="test14_customersPurchasedOwn"/>
+          <include name="test17_deleteAccidentsInRange"/>
+          <include name="cleanupDB"/>
+          <include name="test05_addComplaints"/>
+          <include name="test08_getProductsMadeByWorker"/>
+          <include name="test07_getDateAndTimeForProduct"/>
+          <include name="test02_addProducts"/>
+          <include name="test10_getCostProduct3RepairedBy"/>
+          <include name="test16_switchTSandQC"/>
         </methods>
       </class> <!-- test.TestDatabase -->
     </classes>
