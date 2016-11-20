@@ -1,5 +1,6 @@
 package test;
 
+import java.awt.event.WindowEvent;
 import java.io.FileReader;
 import java.io.IOException;
 import java.sql.SQLException;
@@ -12,6 +13,10 @@ import java.util.GregorianCalendar;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+import ui.Driver;
+
+import javax.swing.JFrame;
 
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
@@ -34,7 +39,7 @@ public class TestDatabase extends TestCase {
 			assertTrue(false);
 		}
 	}
-	
+
 	@Test
 	public static void test01_addEmployees() throws NumberFormatException, IOException, SQLException {
 		CSVReader reader = new CSVReader(new FileReader("employees.csv"), ',');
@@ -185,25 +190,25 @@ public class TestDatabase extends TestCase {
 		}
 		reader.close();
 	}
-	
+
 	@Test
 	public static void test07_getDateAndTimeForProduct() throws SQLException {
 		Map<Integer, DateProducedAndTimeToMake> qualityControllers = new HashMap<Integer, DateProducedAndTimeToMake>();
-		
-		qualityControllers.put(11, new DateProducedAndTimeToMake(new Date(2016,5,11), 1));
-		qualityControllers.put(12, new DateProducedAndTimeToMake(new Date(2016,6,11), 2));
-		qualityControllers.put(13, new DateProducedAndTimeToMake(new Date(2016,7,11), 3));
-		
-		for(Map.Entry<Integer, DateProducedAndTimeToMake> entry : qualityControllers.entrySet()) {
-		    Integer productID = entry.getKey();
-		    DateProducedAndTimeToMake expectedResult = entry.getValue();
 
-		    DateProducedAndTimeToMake actualResult = Database.getDateAndTimeToMakeFor(productID);
-		    
-		    assertEquals(actualResult.toString(), expectedResult.toString());
+		qualityControllers.put(11, new DateProducedAndTimeToMake(new Date(2016, 5, 11), 1));
+		qualityControllers.put(12, new DateProducedAndTimeToMake(new Date(2016, 6, 11), 2));
+		qualityControllers.put(13, new DateProducedAndTimeToMake(new Date(2016, 7, 11), 3));
+
+		for (Map.Entry<Integer, DateProducedAndTimeToMake> entry : qualityControllers.entrySet()) {
+			Integer productID = entry.getKey();
+			DateProducedAndTimeToMake expectedResult = entry.getValue();
+
+			DateProducedAndTimeToMake actualResult = Database.getDateAndTimeToMakeFor(productID);
+
+			assertEquals(actualResult.toString(), expectedResult.toString());
 		}
 	}
-	
+
 	@Test
 	public static void test08_getProductsMadeByWorker() throws SQLException, IOException {
 		CSVReader reader = new CSVReader(new FileReader("employees.csv"), ',');
@@ -215,168 +220,169 @@ public class TestDatabase extends TestCase {
 			name = nextLine[0];
 
 			if (nextLine[2].length() > 0) {
-				//Is worker
+				// Is worker
 				ArrayList<Integer> DBproductsMadeBy = Database.getProductsMadeBy(name);
 				ArrayList<Integer> CSVproductsMadeBy = getProductsMadeByFromCSV(name);
-				
-				assertTrue("DB and CSV give different products made by for " + name, equalLists(DBproductsMadeBy, CSVproductsMadeBy));
+
+				assertTrue("DB and CSV give different products made by for " + name,
+						equalLists(DBproductsMadeBy, CSVproductsMadeBy));
 			}
 		}
 
 		reader.close();
 	}
-	
+
 	@Test
 	public static void test09_getErrorByQC() throws SQLException {
 		Map<String, Integer> qualityControllers = new HashMap<String, Integer>();
-		
+
 		qualityControllers.put("Bob Board", 0);
 		qualityControllers.put("Edgar Epitaph", 1);
 		qualityControllers.put("Hitler Helm", 2);
-		
-		for(Map.Entry<String, Integer> entry : qualityControllers.entrySet()) {
-		    String name = entry.getKey();
-		    Integer errorsCorrect = entry.getValue();
 
-		    Integer errorsFromDB  = new Integer(Database.getErrorsFrom(name));
-		    assertEquals("Errors not equal for " + name, errorsCorrect, errorsFromDB);
+		for (Map.Entry<String, Integer> entry : qualityControllers.entrySet()) {
+			String name = entry.getKey();
+			Integer errorsCorrect = entry.getValue();
+
+			Integer errorsFromDB = new Integer(Database.getErrorsFrom(name));
+			assertEquals("Errors not equal for " + name, errorsCorrect, errorsFromDB);
 		}
 	}
-	
+
 	@Test
 	public static void test10_getCostProduct3RepairedBy() throws SQLException {
 		Map<String, Float> qualityControllers = new HashMap<String, Float>();
-		
+
 		qualityControllers.put("Bob Board", 0f);
 		qualityControllers.put("Edgar Epitaph", 0f);
 		qualityControllers.put("Hitler Helm", 40.42f);
-		
-		for(Map.Entry<String, Float> entry : qualityControllers.entrySet()) {
-		    String name = entry.getKey();
-		    Float costCorrect = entry.getValue();
 
-		    Float costFromDB  = new Float(Database.retrieveProduct3Cost(name));
-		    assertEquals("Product 3 cost repaired not equal for " + name, costCorrect, costFromDB);
+		for (Map.Entry<String, Float> entry : qualityControllers.entrySet()) {
+			String name = entry.getKey();
+			Float costCorrect = entry.getValue();
+
+			Float costFromDB = new Float(Database.retrieveProduct3Cost(name));
+			assertEquals("Product 3 cost repaired not equal for " + name, costCorrect, costFromDB);
 		}
 	}
-	
+
 	@Test
 	public static void test11_getCustomerWhoPurchasedAllColor() throws SQLException {
 		Map<String, ArrayList<String>> qualityControllers = new HashMap<String, ArrayList<String>>();
-		
+
 		ArrayList<String> blueEmployees = new ArrayList<String>();
 		blueEmployees.add("Hitler Helm");
 		qualityControllers.put("Blue", blueEmployees);
-		
+
 		ArrayList<String> greenEmployees = new ArrayList<String>();
 		greenEmployees.add("Kaitlyn Kull");
 		qualityControllers.put("Green", greenEmployees);
-		
-		for(Map.Entry<String, ArrayList<String>> entry : qualityControllers.entrySet()) {
-		    String color = entry.getKey();
-		    ArrayList<String> employeesCorrect = entry.getValue();
 
-		    ArrayList<String> employeesFromDB  = Database.getCustomersWhoPurchased(color);
-		    
-		    assertTrue("Customer who purchased all different for " + color, equalLists(employeesCorrect, employeesFromDB));
+		for (Map.Entry<String, ArrayList<String>> entry : qualityControllers.entrySet()) {
+			String color = entry.getKey();
+			ArrayList<String> employeesCorrect = entry.getValue();
+
+			ArrayList<String> employeesFromDB = Database.getCustomersWhoPurchased(color);
+
+			assertTrue("Customer who purchased all different for " + color,
+					equalLists(employeesCorrect, employeesFromDB));
 		}
 	}
-	
+
 	@Test
 	public static void test12_getWorkDaysLostFromRepairs() throws SQLException {
 		int expectedDaysLost = 13;
 		int daysLost = Database.retrieveDaysLostFromRepairs();
-		
+
 		assertEquals(expectedDaysLost, daysLost);
 	}
-	
+
 	@Test
 	public static void test13_getAllCustomersWhoAreWorkers() throws SQLException, IOException {
 		ArrayList<String> customerWorkersExpected = getCustomerWorkersCSV();
 		ArrayList<String> customerWorkersDB = Database.getAllCustomerWhoAreWorkers();
-		
+
 		assertTrue(equalLists(customerWorkersExpected, customerWorkersDB));
 	}
-	
+
 	@Test
 	public static void test14_customersPurchasedOwn() throws SQLException {
 		ArrayList<String> customersPurchasedOwnExpected = new ArrayList<String>();
 		customersPurchasedOwnExpected.add("Kaitlyn Kull");
-		
+
 		ArrayList<String> customersPurchasedOwnDB = Database.getEmployeesWhoPurchasedOwnProduct();
-		
+
 		assertTrue(equalLists(customersPurchasedOwnExpected, customersPurchasedOwnDB));
 	}
-	
+
 	@Test
 	public static void test15_averageCostProductYear() throws SQLException {
 		float averageCostDB = Database.getAverageCost(2016);
 		float expectedAverageCost2016 = 34.048f;
-		
+
 		assertEquals(expectedAverageCost2016, averageCostDB);
 	}
-	
+
 	@Test
 	public static void test16_switchTSandQC() throws SQLException {
 		String[] qcNames = Database.getAllQualityControllerNames();
 		String[] tsNames = Database.getAllTechnicalStaffNames();
-		
+
 		assertTrue(arrayHas(qcNames, "Bob Board"));
 		assertTrue(arrayHas(tsNames, "Charlie Cup"));
-		
+
 		Database.switchPositions("Charlie Cup", "Bob Board");
-		
+
 		qcNames = Database.getAllQualityControllerNames();
 		tsNames = Database.getAllTechnicalStaffNames();
-		
+
 		assertTrue(arrayHas(qcNames, "Charlie Cup"));
 		assertTrue(arrayHas(tsNames, "Bob Board"));
 	}
-	
+
 	@Test
 	public static void test17_deleteAccidentsInRange() throws SQLException {
 		int accidentCount = Database.getAccidentCount();
-		
-		Calendar calendar = new GregorianCalendar(2016,Calendar.NOVEMBER,5);
+
+		Calendar calendar = new GregorianCalendar(2016, Calendar.NOVEMBER, 5);
 		Date startDate = calendar.getTime();
-		
-		calendar = new GregorianCalendar(2016,Calendar.NOVEMBER,7);
+
+		calendar = new GregorianCalendar(2016, Calendar.NOVEMBER, 7);
 		Date endDate = calendar.getTime();
-		
+
 		Database.deleteAccidentsInRange(startDate, endDate);
-		
+
 		accidentCount = Database.getAccidentCount();
 		int expectedAccidentCount = 2;
-		
+
 		assertEquals(expectedAccidentCount, accidentCount);
 	}
-	
+
 	public static void test18_import() throws IOException, SQLException {
 		Database.importCustomers("customers.csv");
-		
+
 		int actualCustomerCount = Database.getCustomersCount();
 		int expectedCustomerCount = 10;
-		
+
 		assertEquals(expectedCustomerCount, actualCustomerCount);
 	}
-	
+
 	@Test
 	public static void test19_export() throws IOException {
 		Database.exportCustomers("testExport.csv");
-		
+
 		CSVReader reader = new CSVReader(new FileReader("testExport.csv"), ',');
 
-		String[][] expectedResults = {{"Hitler Helm", "234 Eighth"}, {"Kaitlyn Kull", "567 Ninth"}, 
-				{"Luna Larn", "890 Tenth"}, {"Martha Mun", "543 Tree"}, {"Nick Nerth", "295 Rock"},
-				{"Oscar Obto", "626 Gym"}, {"Patrick Path", "326 Water"}, {"Ronald Ricky", "835 Cliff"},
-				{"Susan Seel", "294 Rose"}, {"Taylor Tawn", "275 Wood"}
-		};
-		
+		String[][] expectedResults = { { "Hitler Helm", "234 Eighth" }, { "Kaitlyn Kull", "567 Ninth" },
+				{ "Luna Larn", "890 Tenth" }, { "Martha Mun", "543 Tree" }, { "Nick Nerth", "295 Rock" },
+				{ "Oscar Obto", "626 Gym" }, { "Patrick Path", "326 Water" }, { "Ronald Ricky", "835 Cliff" },
+				{ "Susan Seel", "294 Rose" }, { "Taylor Tawn", "275 Wood" } };
+
 		String[] nextLine;
 		int lineNumber = 0;
 		while ((nextLine = reader.readNext()) != null) {
 			assertTrue(Arrays.equals(expectedResults[lineNumber], nextLine));
-			
+
 			lineNumber++;
 		}
 
@@ -384,14 +390,7 @@ public class TestDatabase extends TestCase {
 	}
 
 	@Test
-	public static void test20_quit() {
-		// TODO test quit
-	}
-
-	@Test
-	public static void test21_Error() {
-		// TODO perform 3 queries of different types that contain some errors.
-		
+	public static void test20_Error() {
 		try {
 			Database.addCustomer("Oscar Obto", "564 Waffle");
 			assertTrue(false);
@@ -399,7 +398,7 @@ public class TestDatabase extends TestCase {
 			String message = e.getMessage();
 			assertTrue(message.toLowerCase().contains("unique"));
 		}
-		
+
 		try {
 			Database.performQuery("delete from product where productID = 15");
 			assertTrue(false);
@@ -407,21 +406,35 @@ public class TestDatabase extends TestCase {
 			String message = e.getMessage();
 			assertTrue(message.toLowerCase().contains("integrity"));
 		}
-		
+
 		try {
 			Database.addComplaint(-1, new Date(), "", "", 11);
 			assertTrue(false);
 		} catch (SQLException e) {
 			String message = e.getMessage();
 			assertTrue(message.toLowerCase().contains("null"));
-		} 
+		}
 	}
+	
+	@Test
+	public static void test21_quit() {
+		JFrame mainFrame = Driver.createAndShowGUI(false);
+
+		assertTrue(Database.connected);
+
+		mainFrame.dispatchEvent(new WindowEvent(mainFrame, WindowEvent.WINDOW_CLOSING));
+
+		assertTrue(!Database.connected);
+	}
+
 
 	@AfterClass
 	public static void cleanupDB() {
-		Database.disconnect();
+		if (Database.connected) {
+			Database.disconnect();
+		}
 	}
-	
+
 	private static <T> boolean arrayHas(T[] array, T value) {
 		for (int i = 0; i < array.length; i++) {
 			if (array[i] == value) {
@@ -430,10 +443,10 @@ public class TestDatabase extends TestCase {
 				return true;
 			}
 		}
-		
+
 		return false;
 	}
-	
+
 	private static ArrayList<String> getCustomerWorkersCSV() throws IOException {
 		// Get employees
 		CSVReader reader = new CSVReader(new FileReader("employees.csv"), ',');
@@ -448,25 +461,25 @@ public class TestDatabase extends TestCase {
 		}
 
 		reader.close();
-		
-		//Check against customers
+
+		// Check against customers
 		reader = new CSVReader(new FileReader("customers.csv"), ',');
-		
+
 		ArrayList<String> matchingNames = new ArrayList<String>();
 
 		while ((nextLine = reader.readNext()) != null) {
 			name = nextLine[0];
-			
+
 			if (employeeNames.contains(name)) {
 				matchingNames.add(name);
 			}
 		}
 
 		reader.close();
-		
+
 		return matchingNames;
 	}
-	
+
 	private static ArrayList<Integer> getProductsMadeByFromCSV(String name) throws IOException {
 		CSVReader reader = new CSVReader(new FileReader("products.csv"), ',');
 
@@ -475,45 +488,43 @@ public class TestDatabase extends TestCase {
 		String producer;
 
 		ArrayList<Integer> productIDs = new ArrayList<Integer>();
-		
+
 		while ((nextLine = reader.readNext()) != null) {
 
 			productID = toInt(nextLine[0]);
 			producer = nextLine[8];
-			
+
 			if (producer.equals(name)) {
 				productIDs.add(new Integer(productID));
 			}
 		}
 
 		reader.close();
-		
+
 		return productIDs;
 	}
-	
+
 	private static int toInt(String st) {
 		return new Integer(st).intValue();
 	}
-	
-	private static <T extends Comparable<? super T>> boolean equalLists(List<T> one, List<T> two){     
-	    if (one == null && two == null){
-	        return true;
-	    }
 
-	    if((one == null && two != null) 
-	      || one != null && two == null
-	      || one.size() != two.size()) {
-	        return false;
-	    }
+	private static <T extends Comparable<? super T>> boolean equalLists(List<T> one, List<T> two) {
+		if (one == null && two == null) {
+			return true;
+		}
 
-	    //to avoid messing the order of the lists we will use a copy
-	    //as noted in comments by A. R. S.
-	    one = new ArrayList<T>(one); 
-	    two = new ArrayList<T>(two);   
+		if ((one == null && two != null) || one != null && two == null || one.size() != two.size()) {
+			return false;
+		}
 
-	    Collections.sort(one);
-	    Collections.sort(two);      
-	    return one.equals(two);
+		// to avoid messing the order of the lists we will use a copy
+		// as noted in comments by A. R. S.
+		one = new ArrayList<T>(one);
+		two = new ArrayList<T>(two);
+
+		Collections.sort(one);
+		Collections.sort(two);
+		return one.equals(two);
 	}
 
 }

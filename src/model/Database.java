@@ -22,7 +22,7 @@ import oracle.jdbc.OracleTypes;
 public final class Database {
 	private static Connection conn;
 	private static Statement stmt;
-	private static boolean connected = false;
+	public static boolean connected = false;
 
 	private final static String sourceURL = "jdbc:oracle:thin:@//oracle.cs.ou.edu:1521/pdborcl.cs.ou.edu";
 	private final static String username = "grah8384";
