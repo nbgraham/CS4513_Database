@@ -1,97 +1,130 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" total="20" passed="20">
+<testng-results skipped="20" failed="0" total="20" passed="0">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="25243" started-at="2016-11-20T22:40:14Z" finished-at="2016-11-20T22:40:39Z">
+  <suite name="Default suite" duration-ms="261" started-at="2016-11-21T02:52:39Z" finished-at="2016-11-21T02:52:39Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="25243" started-at="2016-11-20T22:40:14Z" finished-at="2016-11-20T22:40:39Z">
+    <test name="Default test" duration-ms="261" started-at="2016-11-21T02:52:39Z" finished-at="2016-11-21T02:52:39Z">
       <class name="test.TestDatabase">
-        <test-method status="PASS" signature="setupDB()[pri:0, instance:null(test.TestDatabase)]" name="setupDB" is-config="true" duration-ms="8033" started-at="2016-11-20T16:40:14Z" finished-at="2016-11-20T16:40:22Z">
+        <test-method status="FAIL" signature="setupDB()[pri:0, instance:null(test.TestDatabase)]" name="setupDB" is-config="true" duration-ms="0" started-at="2016-11-20T20:52:39Z" finished-at="2016-11-20T20:52:39Z">
+          <exception class="java.lang.NullPointerException">
+            <full-stacktrace>
+              <![CDATA[java.lang.NullPointerException
+	at model.Database.clearData(Database.java:82)
+	at test.TestDatabase.setupDB(TestDatabase.java:37)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:100)
+	at org.testng.internal.Invoker.invokeConfigurationMethod(Invoker.java:515)
+	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:216)
+	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:143)
+	at org.testng.internal.TestMethodWorker.invokeBeforeClassMethods(TestMethodWorker.java:169)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:108)
+	at org.testng.TestRunner.privateRun(TestRunner.java:753)
+	at org.testng.TestRunner.run(TestRunner.java:607)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:368)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:363)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:321)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:270)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1284)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1209)
+	at org.testng.TestNG.runSuites(TestNG.java:1124)
+	at org.testng.TestNG.run(TestNG.java:1096)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:132)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:236)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:81)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.NullPointerException -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setupDB -->
-        <test-method status="PASS" signature="test01_addEmployees()[pri:0, instance:null(test.TestDatabase)]" name="test01_addEmployees" duration-ms="1579" started-at="2016-11-20T16:40:22Z" finished-at="2016-11-20T16:40:23Z">
+        <test-method status="SKIP" signature="test01_addEmployees()[pri:0, instance:null(test.TestDatabase)]" name="test01_addEmployees" duration-ms="2" started-at="2016-11-20T20:52:39Z" finished-at="2016-11-20T20:52:39Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- test01_addEmployees -->
-        <test-method status="PASS" signature="test02_addProducts()[pri:0, instance:null(test.TestDatabase)]" name="test02_addProducts" duration-ms="4719" started-at="2016-11-20T16:40:23Z" finished-at="2016-11-20T16:40:28Z">
+        <test-method status="SKIP" signature="test02_addProducts()[pri:0, instance:null(test.TestDatabase)]" name="test02_addProducts" duration-ms="1" started-at="2016-11-20T20:52:39Z" finished-at="2016-11-20T20:52:39Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- test02_addProducts -->
-        <test-method status="PASS" signature="test03_addCustomers()[pri:0, instance:null(test.TestDatabase)]" name="test03_addCustomers" duration-ms="3135" started-at="2016-11-20T16:40:28Z" finished-at="2016-11-20T16:40:31Z">
+        <test-method status="SKIP" signature="test03_addCustomers()[pri:0, instance:null(test.TestDatabase)]" name="test03_addCustomers" duration-ms="1" started-at="2016-11-20T20:52:39Z" finished-at="2016-11-20T20:52:39Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- test03_addCustomers -->
-        <test-method status="PASS" signature="test04_addAccounts()[pri:0, instance:null(test.TestDatabase)]" name="test04_addAccounts" duration-ms="1422" started-at="2016-11-20T16:40:31Z" finished-at="2016-11-20T16:40:33Z">
+        <test-method status="SKIP" signature="test04_addAccounts()[pri:0, instance:null(test.TestDatabase)]" name="test04_addAccounts" duration-ms="1" started-at="2016-11-20T20:52:39Z" finished-at="2016-11-20T20:52:39Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- test04_addAccounts -->
-        <test-method status="PASS" signature="test05_addComplaints()[pri:0, instance:null(test.TestDatabase)]" name="test05_addComplaints" duration-ms="362" started-at="2016-11-20T16:40:33Z" finished-at="2016-11-20T16:40:33Z">
+        <test-method status="SKIP" signature="test05_addComplaints()[pri:0, instance:null(test.TestDatabase)]" name="test05_addComplaints" duration-ms="1" started-at="2016-11-20T20:52:39Z" finished-at="2016-11-20T20:52:39Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- test05_addComplaints -->
-        <test-method status="PASS" signature="test06_addAccidents()[pri:0, instance:null(test.TestDatabase)]" name="test06_addAccidents" duration-ms="252" started-at="2016-11-20T16:40:33Z" finished-at="2016-11-20T16:40:33Z">
+        <test-method status="SKIP" signature="test06_addAccidents()[pri:0, instance:null(test.TestDatabase)]" name="test06_addAccidents" duration-ms="1" started-at="2016-11-20T20:52:39Z" finished-at="2016-11-20T20:52:39Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- test06_addAccidents -->
-        <test-method status="PASS" signature="test07_getDateAndTimeForProduct()[pri:0, instance:null(test.TestDatabase)]" name="test07_getDateAndTimeForProduct" duration-ms="127" started-at="2016-11-20T16:40:33Z" finished-at="2016-11-20T16:40:34Z">
+        <test-method status="SKIP" signature="test07_getDateAndTimeForProduct()[pri:0, instance:null(test.TestDatabase)]" name="test07_getDateAndTimeForProduct" duration-ms="1" started-at="2016-11-20T20:52:39Z" finished-at="2016-11-20T20:52:39Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- test07_getDateAndTimeForProduct -->
-        <test-method status="PASS" signature="test08_getProductsMadeByWorker()[pri:0, instance:null(test.TestDatabase)]" name="test08_getProductsMadeByWorker" duration-ms="341" started-at="2016-11-20T16:40:34Z" finished-at="2016-11-20T16:40:34Z">
+        <test-method status="SKIP" signature="test08_getProductsMadeByWorker()[pri:0, instance:null(test.TestDatabase)]" name="test08_getProductsMadeByWorker" duration-ms="1" started-at="2016-11-20T20:52:39Z" finished-at="2016-11-20T20:52:39Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- test08_getProductsMadeByWorker -->
-        <test-method status="PASS" signature="test09_getErrorByQC()[pri:0, instance:null(test.TestDatabase)]" name="test09_getErrorByQC" duration-ms="275" started-at="2016-11-20T16:40:34Z" finished-at="2016-11-20T16:40:34Z">
+        <test-method status="SKIP" signature="test09_getErrorByQC()[pri:0, instance:null(test.TestDatabase)]" name="test09_getErrorByQC" duration-ms="0" started-at="2016-11-20T20:52:39Z" finished-at="2016-11-20T20:52:39Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- test09_getErrorByQC -->
-        <test-method status="PASS" signature="test10_getCostProduct3RepairedBy()[pri:0, instance:null(test.TestDatabase)]" name="test10_getCostProduct3RepairedBy" duration-ms="279" started-at="2016-11-20T16:40:34Z" finished-at="2016-11-20T16:40:34Z">
+        <test-method status="SKIP" signature="test10_getCostProduct3RepairedBy()[pri:0, instance:null(test.TestDatabase)]" name="test10_getCostProduct3RepairedBy" duration-ms="1" started-at="2016-11-20T20:52:39Z" finished-at="2016-11-20T20:52:39Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- test10_getCostProduct3RepairedBy -->
-        <test-method status="PASS" signature="test11_getCustomerWhoPurchasedAllColor()[pri:0, instance:null(test.TestDatabase)]" name="test11_getCustomerWhoPurchasedAllColor" duration-ms="214" started-at="2016-11-20T16:40:34Z" finished-at="2016-11-20T16:40:35Z">
+        <test-method status="SKIP" signature="test11_getCustomerWhoPurchasedAllColor()[pri:0, instance:null(test.TestDatabase)]" name="test11_getCustomerWhoPurchasedAllColor" duration-ms="1" started-at="2016-11-20T20:52:39Z" finished-at="2016-11-20T20:52:39Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- test11_getCustomerWhoPurchasedAllColor -->
-        <test-method status="PASS" signature="test12_getWorkDaysLostFromRepairs()[pri:0, instance:null(test.TestDatabase)]" name="test12_getWorkDaysLostFromRepairs" duration-ms="43" started-at="2016-11-20T16:40:35Z" finished-at="2016-11-20T16:40:35Z">
+        <test-method status="SKIP" signature="test12_getWorkDaysLostFromRepairs()[pri:0, instance:null(test.TestDatabase)]" name="test12_getWorkDaysLostFromRepairs" duration-ms="1" started-at="2016-11-20T20:52:39Z" finished-at="2016-11-20T20:52:39Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- test12_getWorkDaysLostFromRepairs -->
-        <test-method status="PASS" signature="test13_getAllCustomersWhoAreWorkers()[pri:0, instance:null(test.TestDatabase)]" name="test13_getAllCustomersWhoAreWorkers" duration-ms="193" started-at="2016-11-20T16:40:35Z" finished-at="2016-11-20T16:40:35Z">
+        <test-method status="SKIP" signature="test13_getAllCustomersWhoAreWorkers()[pri:0, instance:null(test.TestDatabase)]" name="test13_getAllCustomersWhoAreWorkers" duration-ms="1" started-at="2016-11-20T20:52:39Z" finished-at="2016-11-20T20:52:39Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- test13_getAllCustomersWhoAreWorkers -->
-        <test-method status="PASS" signature="test14_customersPurchasedOwn()[pri:0, instance:null(test.TestDatabase)]" name="test14_customersPurchasedOwn" duration-ms="103" started-at="2016-11-20T16:40:35Z" finished-at="2016-11-20T16:40:35Z">
+        <test-method status="SKIP" signature="test14_customersPurchasedOwn()[pri:0, instance:null(test.TestDatabase)]" name="test14_customersPurchasedOwn" duration-ms="1" started-at="2016-11-20T20:52:39Z" finished-at="2016-11-20T20:52:39Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- test14_customersPurchasedOwn -->
-        <test-method status="PASS" signature="test15_averageCostProductYear()[pri:0, instance:null(test.TestDatabase)]" name="test15_averageCostProductYear" duration-ms="45" started-at="2016-11-20T16:40:35Z" finished-at="2016-11-20T16:40:35Z">
+        <test-method status="SKIP" signature="test15_averageCostProductYear()[pri:0, instance:null(test.TestDatabase)]" name="test15_averageCostProductYear" duration-ms="0" started-at="2016-11-20T20:52:39Z" finished-at="2016-11-20T20:52:39Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- test15_averageCostProductYear -->
-        <test-method status="PASS" signature="test16_switchTSandQC()[pri:0, instance:null(test.TestDatabase)]" name="test16_switchTSandQC" duration-ms="274" started-at="2016-11-20T16:40:35Z" finished-at="2016-11-20T16:40:35Z">
+        <test-method status="SKIP" signature="test16_switchTSandQC()[pri:0, instance:null(test.TestDatabase)]" name="test16_switchTSandQC" duration-ms="1" started-at="2016-11-20T20:52:39Z" finished-at="2016-11-20T20:52:39Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- test16_switchTSandQC -->
-        <test-method status="PASS" signature="test17_deleteAccidentsInRange()[pri:0, instance:null(test.TestDatabase)]" name="test17_deleteAccidentsInRange" duration-ms="166" started-at="2016-11-20T16:40:35Z" finished-at="2016-11-20T16:40:35Z">
+        <test-method status="SKIP" signature="test17_deleteAccidentsInRange()[pri:0, instance:null(test.TestDatabase)]" name="test17_deleteAccidentsInRange" duration-ms="0" started-at="2016-11-20T20:52:39Z" finished-at="2016-11-20T20:52:39Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- test17_deleteAccidentsInRange -->
-        <test-method status="PASS" signature="test19_export()[pri:0, instance:null(test.TestDatabase)]" name="test19_export" duration-ms="193" started-at="2016-11-20T16:40:35Z" finished-at="2016-11-20T16:40:36Z">
+        <test-method status="SKIP" signature="test19_export()[pri:0, instance:null(test.TestDatabase)]" name="test19_export" duration-ms="1" started-at="2016-11-20T20:52:39Z" finished-at="2016-11-20T20:52:39Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- test19_export -->
-        <test-method status="PASS" signature="test20_Error()[pri:0, instance:null(test.TestDatabase)]" name="test20_Error" duration-ms="351" started-at="2016-11-20T16:40:36Z" finished-at="2016-11-20T16:40:36Z">
+        <test-method status="SKIP" signature="test20_Error()[pri:0, instance:null(test.TestDatabase)]" name="test20_Error" duration-ms="0" started-at="2016-11-20T20:52:39Z" finished-at="2016-11-20T20:52:39Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- test20_Error -->
-        <test-method status="PASS" signature="test21_quit()[pri:0, instance:null(test.TestDatabase)]" name="test21_quit" duration-ms="3086" started-at="2016-11-20T16:40:36Z" finished-at="2016-11-20T16:40:39Z">
+        <test-method status="SKIP" signature="test21_quit()[pri:0, instance:null(test.TestDatabase)]" name="test21_quit" duration-ms="1" started-at="2016-11-20T20:52:39Z" finished-at="2016-11-20T20:52:39Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- test21_quit -->
-        <test-method status="PASS" signature="cleanupDB()[pri:0, instance:null(test.TestDatabase)]" name="cleanupDB" is-config="true" duration-ms="0" started-at="2016-11-20T16:40:39Z" finished-at="2016-11-20T16:40:39Z">
+        <test-method status="SKIP" signature="cleanupDB()[pri:0, instance:null(test.TestDatabase)]" name="cleanupDB" is-config="true" duration-ms="0" started-at="2016-11-20T20:52:39Z" finished-at="2016-11-20T20:52:39Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- cleanupDB -->

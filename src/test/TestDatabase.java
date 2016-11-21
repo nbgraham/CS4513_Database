@@ -67,6 +67,15 @@ public class TestDatabase extends TestCase {
 		}
 
 		reader.close();
+		
+		//Verify that info was actually added
+		int workerCount = Database.getCount("worker");
+		int tsCount = Database.getCount("technical_staff");
+		int qcCount = Database.getCount("quality_controller");
+		
+		assertEquals(4, workerCount);
+		assertEquals(3, tsCount);
+		assertEquals(3, qcCount);
 	}
 
 	@Test
@@ -115,21 +124,26 @@ public class TestDatabase extends TestCase {
 		}
 
 		reader.close();
+		
+		//Verify that info was actually added
+		int productsCount = Database.getCount("product");
+		assertEquals(10, productsCount);
 	}
 
 	@Test
 	public static void test03_addCustomers() throws IOException, SQLException {
-		test18_import();
+		test18_import();		
 	}
 
 	@Test
 	public static void test04_addAccounts() throws NumberFormatException, IOException, SQLException {
 		CSVReader reader = new CSVReader(new FileReader("accounts.csv"), ',');
 
-		String[] nextLine;
 		Date dateEstablished;
 		int accountNum, productID;
 		float productCost;
+		
+		String[] nextLine;
 		while ((nextLine = reader.readNext()) != null) {
 
 			accountNum = toInt(nextLine[0]);
@@ -139,7 +153,12 @@ public class TestDatabase extends TestCase {
 
 			Database.addAccount(accountNum, dateEstablished, productCost, productID);
 		}
+		
 		reader.close();
+		
+		//Verify that info was actually added
+		int accountCount = Database.getCount("account");
+		assertEquals(10, accountCount);
 	}
 
 	@Test
@@ -162,15 +181,19 @@ public class TestDatabase extends TestCase {
 		}
 
 		reader.close();
+		
+		int complaintsCount = Database.getCount("complaint");
+		assertEquals(3, complaintsCount);
 	}
 
 	@Test
 	public static void test06_addAccidents() throws NumberFormatException, IOException, SQLException {
 		CSVReader reader = new CSVReader(new FileReader("accidents.csv"), ',');
 
-		String[] nextLine;
 		Date dateOf;
 		int accidentNum, productID, daysLost, repairID;
+		
+		String[] nextLine;
 		while ((nextLine = reader.readNext()) != null) {
 
 			productID = -1;
@@ -188,7 +211,12 @@ public class TestDatabase extends TestCase {
 
 			Database.addAccident(accidentNum, dateOf, daysLost, repairID, productID);
 		}
+		
 		reader.close();
+		
+		//Verify that info was actually added
+		int accidentCount = Database.getCount("accident");
+		assertEquals(3, accidentCount);
 	}
 
 	@Test
@@ -205,6 +233,7 @@ public class TestDatabase extends TestCase {
 
 			DateProducedAndTimeToMake actualResult = Database.getDateAndTimeToMakeFor(productID);
 
+			//Verify that info was actually added
 			assertEquals(actualResult.toString(), expectedResult.toString());
 		}
 	}
@@ -342,7 +371,7 @@ public class TestDatabase extends TestCase {
 
 	@Test
 	public static void test17_deleteAccidentsInRange() throws SQLException {
-		int accidentCount = Database.getAccidentCount();
+		int accidentCount = Database.getCount("accident");
 
 		Calendar calendar = new GregorianCalendar(2016, Calendar.NOVEMBER, 5);
 		Date startDate = calendar.getTime();
@@ -352,7 +381,7 @@ public class TestDatabase extends TestCase {
 
 		Database.deleteAccidentsInRange(startDate, endDate);
 
-		accidentCount = Database.getAccidentCount();
+		accidentCount = Database.getCount("accident");
 		int expectedAccidentCount = 2;
 
 		assertEquals(expectedAccidentCount, accidentCount);
@@ -361,7 +390,7 @@ public class TestDatabase extends TestCase {
 	public static void test18_import() throws IOException, SQLException {
 		Database.importCustomers("customers.csv");
 
-		int actualCustomerCount = Database.getCustomersCount();
+		int actualCustomerCount = Database.getCount("customer");
 		int expectedCustomerCount = 10;
 
 		assertEquals(expectedCustomerCount, actualCustomerCount);

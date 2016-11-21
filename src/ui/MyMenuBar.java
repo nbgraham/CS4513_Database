@@ -56,10 +56,8 @@ public class MyMenuBar extends JMenuBar {
 					try {
 						Database.importCustomers(file.getPath());
 					} catch (IOException e1) {
-						// TODO file chooser error handling
 						e1.printStackTrace();
 					} catch (SQLException e1) {
-						// TODO file chooser error handling
 						e1.printStackTrace();
 					}
 
@@ -76,7 +74,6 @@ public class MyMenuBar extends JMenuBar {
 					try {
 						Database.exportCustomers(file.getPath());
 					} catch (IOException e1) {
-						// TODO file chooser error handling
 						e1.printStackTrace();
 					}
 				}

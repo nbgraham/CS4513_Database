@@ -70,10 +70,24 @@ CREATE OR REPLACE PROCEDURE NEWREPAIR(
   dateRepaired in date
 )
 AS
+  product_Type int;
+  is_Graduate int;
 BEGIN
-  --Insert new product
-  insert into repair (staff_name, productid, date_of)
-    values (tsName, productID_, dateRepaired);
+  --If a product1 has any problem, only a technical staff who has graduate education can repair it.
+  select product_num 
+    into product_Type 
+    from product where productID = productID_;
+  select isGraduate 
+    into is_Graduate
+    from degree where recipient_name = tsName;
+  
+  IF ((product_Type = 3) and (is_Graduate = 0)) THEN
+    RAISE VALUE_ERROR;
+  ELSE
+    --Insert new product
+    insert into repair (staff_name, productid, date_of)
+      values (tsName, productID_, dateRepaired);
+  END IF;
 END NEWREPAIR;
 /
 

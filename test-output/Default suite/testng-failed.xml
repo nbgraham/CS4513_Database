@@ -18,11 +18,12 @@
           <include name="test01_addEmployees"/>
           <include name="test14_customersPurchasedOwn"/>
           <include name="test17_deleteAccidentsInRange"/>
-          <include name="cleanupDB"/>
           <include name="test05_addComplaints"/>
           <include name="test08_getProductsMadeByWorker"/>
           <include name="test07_getDateAndTimeForProduct"/>
+          <include name="test19_export"/>
           <include name="test02_addProducts"/>
+          <include name="test21_quit"/>
           <include name="test10_getCostProduct3RepairedBy"/>
           <include name="test16_switchTSandQC"/>
         </methods>

@@ -153,16 +153,16 @@ public final class Database {
 		return technicalStaff;
 	}
 
-	public static int getAccidentCount() {
-		int accidentCount = -1;
+	public static int getCount(String tableName) {
+		int count = -1;
 		
 		if (connected) {
 			try {
 				// SQL call to get all workers
-				ResultSet rset = stmt.executeQuery("select count(*) from accident");
+				ResultSet rset = stmt.executeQuery("select count(*) from " + tableName);
 
 				while (rset.next()) {
-					accidentCount = rset.getInt(1);
+					count = rset.getInt(1);
 				}
 
 				rset.close();
@@ -171,7 +171,7 @@ public final class Database {
 			}
 		}
 
-		return accidentCount;
+		return count;
 	}
 	
 	public static ArrayList<Integer> getAllProductIDsArrayList() {
@@ -428,20 +428,6 @@ public final class Database {
 	
 		return employeeNames;
 	}
-	
-	public static int getCustomersCount() throws SQLException {
-		int customersCount = -1;
-		
-		ResultSet rs = stmt.executeQuery("select count(*) from customer");
-		
-		while(rs.next()) {
-			customersCount = rs.getInt(1);
-		}
-		
-		rs.close();
-		
-		return customersCount;
-	}
 
 	public static float retrieveProduct3Cost(String qualityControllerName) throws SQLException {
 		// Prepare call to PL/SQL
@@ -566,6 +552,14 @@ public final class Database {
 		cs.execute();
 	
 		cs.close();		
+	}
+	
+	public static void addDegree(String recipientName, String speciality, boolean isGraduateDegree) throws SQLException {
+		int isGraduate = isGraduateDegree ? 1: 0;
+		
+		performQuery("insert into degree(recipient_name, speciality, isGraduate) values (" +
+				"'" + recipientName + "'," +
+				"'" + speciality + "'," + isGraduate + ")");
 	}
 
 	public static void addAccount(int accountNumber, Date dateEstablished, float productCost,

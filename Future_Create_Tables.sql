@@ -103,11 +103,11 @@ create index accident_index on accident(date_of);
 
 create table degree (
   recipient_name varchar(50) not null,
-  specialty varchar(50) not null,
-  type varchar(50) not null,
+  specialty varchar(50),
+  isGraduate int not null,
   constraint fk_degree_name foreign key (recipient_name)
     references technical_staff(name),
-  constraint pk_degreeID primary key (recipient_name, specialty, type)
+  constraint pk_degreeID primary key (recipient_name, isGraduate)
 );
 
 create table lead_to (
